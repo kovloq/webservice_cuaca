@@ -13,6 +13,16 @@ while ($data=mysql_fetch_array($result)){
 		<input type="hidden" name="id" value="<?php echo $data["id"] ?>">
 		<input type="submit" value="Get Data">
 		</form>
+		<form method="post" action="get_cuaca.php">
+			<input type="hidden" name="url" value="<?php echo $data["tomorrow_url"] ?>">
+			<input type="hidden" name="id" value="<?php echo $data["id"] ?>"/>
+			<input type="submit" value="Get Tomorrow's Weather">
+		</form>
+		<form method="post" action="get_cuaca.php">
+			<input type="hidden" name="url" value="<?php echo $data["today_url"] ?>">
+			<input type="hidden" name="id" value="<?php echo $data["id"] ?>"/>
+			<input type="submit" value="Get Today's Weather">
+		</form>
 	</li>
 <?php 
 }
