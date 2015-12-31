@@ -62,4 +62,5 @@ while($data = mysql_fetch_array($result)){
 		
 	}
 }
+echo "OK";
 ?>

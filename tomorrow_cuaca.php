@@ -44,4 +44,5 @@ while($data = mysql_fetch_array($result)){
 		mysql_query($query);
 	}
 }
+echo "OK";
 ?>
