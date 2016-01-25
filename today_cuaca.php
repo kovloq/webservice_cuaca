@@ -36,16 +36,16 @@ while($data = mysql_fetch_array($result)){
 			$siang=$xml->Isi->Row[$i]->Siang;
 			$malam=$xml->Isi->Row[$i]->Malam;
 			$cuaca=$pagi."__".$siang."__".$malam;
-			$pagi_image=str_replace(" ","_",strtolower($pagi)).".jpg";
-			$siang_image=str_replace(" ","_",strtolower($siang)).".jpg";
-			$malam_image=str_replace(" ","_",strtolower($malam)).".jpg";
+			$pagi_image=str_replace(" ","_",strtolower($pagi)).".png";
+			$siang_image=str_replace(" ","_",strtolower($siang)).".png";
+			$malam_image=str_replace(" ","_",strtolower($malam)).".png";
 			$image=$pagi_image."__".$siang_image."__".$malam_image;
 			if($cuaca_besok!=$cuaca && strlen($cuaca_besok > 9)){
 				$cuaca=$cuaca_besok;
 			}
 		}else{
 			$cuaca=$xml->Isi->Row[$i]->Cuaca;
-			$image=str_replace(" ","_",strtolower($cuaca)).".jpg";
+			$image=str_replace(" ","_",strtolower($cuaca)).".png";
 			// Compare Tomorrow URL and Today URL
 			if($cuaca_besok=="-" && $cuaca!="-"){
 				$query="UPDATE cuaca set cuaca='".$cuaca."' WHERE tanggal='".$tanggal."' AND kota_id='".$kota_id."'";
@@ -54,7 +54,7 @@ while($data = mysql_fetch_array($result)){
 				$query="UPDATE cuaca set cuaca='".$cuaca."' WHERE tanggal='".$tanggal."' AND kota_id='".$kota_id."'";
 				mysql_query($query);//echo "dua";
 			}elseif($cuaca_besok=="-" AND $cuaca="-"){
-				$query="UPDATE cuaca set cuaca='Tidak ada data',image='no_data.jpg' WHERE tanggal='".$tanggal."' AND kota_id='".$kota_id."'";
+				$query="UPDATE cuaca set cuaca='Tidak ada data',image='no_data.png' WHERE tanggal='".$tanggal."' AND kota_id='".$kota_id."'";
 				mysql_query($query);//echo "tiga";
 			}
 		}

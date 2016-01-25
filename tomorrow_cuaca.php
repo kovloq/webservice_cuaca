@@ -30,13 +30,16 @@ while($data = mysql_fetch_array($result)){
 			$siang=$xml->Isi->Row[$i]->Siang;
 			$malam=$xml->Isi->Row[$i]->Malam;
 			$cuaca=$pagi."__".$siang."__".$malam;
-			$pagi_image=str_replace(" ","_",strtolower($pagi)).".jpg";
-			$siang_image=str_replace(" ","_",strtolower($siang)).".jpg";
-			$malam_image=str_replace(" ","_",strtolower($malam)).".jpg";
+			$pagi_image=str_replace(" ","_",strtolower($pagi)).".png";
+			$siang_image=str_replace(" ","_",strtolower($siang)).".png";
+			$malam_image=str_replace(" ","_",strtolower($malam)).".png";
 			$image=$pagi_image."__".$siang_image."__".$malam_image;
 		}else{
 			$cuaca=$xml->Isi->Row[$i]->Cuaca;
-			$image=str_replace(" ","_",strtolower($cuaca)).".jpg";
+			if($cuaca=="-"){
+				$cuaca="Tidak ada data";
+			}
+			$image=str_replace(" ","_",strtolower($cuaca)).".png";
 		}
 		
 		$query="INSERT INTO cuaca (propinsi_id,kota_id,tanggal,cuaca,image) VALUES ('".$id."','".$kota_id."','".$tanggal."','".$cuaca."','".$image."')";
@@ -44,5 +47,4 @@ while($data = mysql_fetch_array($result)){
 		mysql_query($query);
 	}
 }
-echo "OK";
 ?>
