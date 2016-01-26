@@ -30,9 +30,9 @@ while($data = mysql_fetch_array($result)){
 			$siang=$xml->Isi->Row[$i]->Siang;
 			$malam=$xml->Isi->Row[$i]->Malam;
 			$cuaca=$pagi."__".$siang."__".$malam;
-			$pagi_image=str_replace(" ","_",strtolower($pagi)).".png";
-			$siang_image=str_replace(" ","_",strtolower($siang)).".png";
-			$malam_image=str_replace(" ","_",strtolower($malam)).".png";
+			$pagi_image=str_replace(" ","_",strtolower($pagi));
+			$siang_image=str_replace(" ","_",strtolower($siang));
+			$malam_image=str_replace(" ","_",strtolower($malam));
 			$image=$pagi_image."__".$siang_image."__".$malam_image;
 		}else{
 			$cuaca=$xml->Isi->Row[$i]->Cuaca;

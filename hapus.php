@@ -6,5 +6,5 @@ ini_set('display_errors', 1);
 $tanggal= date('d F Y');
 $query="DELETE FROM cuaca WHERE tanggal < '".$tanggal."'";
 mysql_query($query);
-echo "OK";
+
 ?>
