@@ -21,7 +21,7 @@ while($data = mysql_fetch_array($result)){
 		}else{
 			$name=$xml->Isi->Row[$i]->Kota;
 		}
-		$query2="SELECT * FROM kota WHERE name='".$name."'";
+		$query2="SELECT * FROM kota WHERE name='".addslashes($name)."'";
 		$result2=mysql_query($query2);
 		$data2=mysql_fetch_array($result2);
 		$kota_id=$data2["id"];
@@ -39,7 +39,7 @@ while($data = mysql_fetch_array($result)){
 			if($cuaca=="-"){
 				$cuaca="Tidak ada data";
 			}
-			$image=str_replace(" ","_",strtolower($cuaca)).".png";
+			$image=str_replace(" ","_",strtolower($cuaca));
 		}
 		
 		$query="INSERT INTO cuaca (propinsi_id,kota_id,tanggal,cuaca,image) VALUES ('".$id."','".$kota_id."','".$tanggal."','".$cuaca."','".$image."')";
@@ -47,4 +47,5 @@ while($data = mysql_fetch_array($result)){
 		mysql_query($query);
 	}
 }
+echo "OK";
 ?>

@@ -45,7 +45,7 @@ while($data = mysql_fetch_array($result)){
 			}
 		}else{
 			$cuaca=$xml->Isi->Row[$i]->Cuaca;
-			$image=str_replace(" ","_",strtolower($cuaca)).".png";
+			$image=str_replace(" ","_",strtolower($cuaca));
 			// Compare Tomorrow URL and Today URL
 			if($cuaca_besok=="-" && $cuaca!="-"){
 				$query="UPDATE cuaca set cuaca='".$cuaca."' WHERE tanggal='".$tanggal."' AND kota_id='".$kota_id."'";
