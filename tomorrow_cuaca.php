@@ -11,9 +11,9 @@ while($data = mysql_fetch_array($result)){
 	$xml=simplexml_load_file($url);
 	$id=$data["id"];
 	if($id==12){
-		$tanggal=$xml->Tanggal;
+		$tanggal=trim($xml->Tanggal);
 	}else{
-		$tanggal=$xml->Tanggal->Mulai;
+		$tanggal=trim($xml->Tanggal->Mulai);
 	}
 	for($i=0;$i<count($xml->Isi->Row);$i++){
 		if($id==12){
