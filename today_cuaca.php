@@ -45,6 +45,7 @@ while($data = mysql_fetch_array($result)){
 		$query="INSERT INTO cuaca (propinsi_id,kota_id,tanggal,cuaca,image) VALUES ('".$id."','".$kota_id."','".$tanggal."','".$cuaca."','".$image."')";
 		// echo "<br/>";
 		mysql_query($query);
+		
 	}
 }
 echo "OK";
